@@ -1,0 +1,233 @@
+/* content */
+.content {
+    background-color: #dbdbdb;
+    height: auto;
+    padding:10px 0px;
+}
+.banner__wrapper {
+    height: auto;
+    position: relative;
+}
+.banner__wrapper img {
+    width: 100%;
+    display: block;
+}
+/* action */
+.banner__action,
+.product__action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    opacity: 0;
+}
+.banner__action:hover,
+.product__action:hover {
+    opacity: 1;
+}
+.banner__btns,
+.product__btns {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.banner__btn,
+.product__btn {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+}
+.banner__btn > i,
+.product__btn > i {
+    font-size: 30px;
+    color:#fff;
+}
+#btn__next--hover,
+#btn__productNext--hover {
+    height: 0px;
+    right: 10px;
+    overflow: hidden;
+    z-index: -1;
+}
+#btn__prev--hover,
+#btn__productPrev--hover {
+    height: 0px;
+    left: 10px;
+    overflow: hidden;
+    z-index: -1;
+}
+#btn__next--hover > i,
+#btn__prev--hover>i,
+#btn__productNext--hover > i,
+#btn__productPrev--hover > i {
+    color:#000;
+}
+.btn--hover {
+    z-index: 2 !important;
+    height: 30px !important;
+    transition: all linear 0.5s;
+}
+#btn__next,
+#btn__productNext {
+    right: 10px;
+}
+#btn__prev,
+#btn__productPrev {
+    left: 10px;
+}
+.banner__dots,
+.product__dots {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.banner__dot,
+.product__dot {
+    border-radius: 50%;
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: aqua;
+    margin-left: 5px;
+}
+@keyframes bannerBtn {
+    to {
+        height: 30px;
+    }
+}
+
+/* product sale */
+.product {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+}
+.product__action {
+    height: auto;
+}
+.product__title {
+    display: flex;
+}
+.product--sale {
+    background: rgb(271,21,21);
+}
+.product__list {
+    position: relative;
+}
+.product__type {
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight:700;
+
+}
+.product__type > img {
+    width: 20px;
+    height: 20px;
+
+}
+.product__countdown {
+    list-style: none;
+    display: flex;
+}
+.product__countdown > li {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-right: 8px;
+    text-transform: capitalize;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+.product__countdown > li > span {
+    font-weight: 500;
+}
+.product__items {
+    padding: 0px 30px;
+    height: auto;
+    display: flex;
+}
+.product__item {
+    width: calc((100% - 48px)/5);
+    background-color: #fff;
+    padding:5px;
+    border-radius:8px;
+}
+.product__item  img {
+    width: 100%;
+}
+.product__itemImg {
+    border: 2px solid rgb(6,123,233);
+    border-radius : 4px;
+    position: relative;
+    padding: 35px 0px;
+}
+.product__sale {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 27px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: rgb(255,0,0);
+    color:#fff;
+    font-size: 12px;
+}
+.product__sale::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    content: "";
+    width:0px;
+    height:0px;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 10px solid #ff0000;
+}
+.product__btnAdd {
+    border: none;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color: rgb(40,138,214);
+    padding: 5px 8px;
+    border-radius: 50%;
+    color:#fff;
+    font-size: 12px;
+}
+.product__detail {
+    border: 1px solid black;
+}
+.product__evaluates {
+    list-style: none;
+    display: flex;
+}
+.product__btnAll {
+    margin-top: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    padding: 4px 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.product__btnAll:hover {
+    background-color: #dbdbdb;
+    box-shadow: #000 0px 1px 4px;
+    color: red;
+}
