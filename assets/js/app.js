@@ -29,7 +29,23 @@ function insertCh() {
     textId = 0;
   }
 }
+// img banner
+// const imgBannerApi = 'http://localhost:3000/sliderBanner'
 
+// function renderImgBanner (data) {
+//   data.forEach(element => {
+//    imgs.push(element.src)
+//  })
+// }
+//  function getApi (callback) {
+//   fetch(imgBannerApi)
+//   .then(function (response) {
+//       return response.json();
+//   })
+//   .then(callback)
+// }
+// getApi(renderImgBanner)
+// console.log(imgs)
 // ---hover btn banner
 let btnNextHover = document.querySelector("#btn__next");
 let btnNext = document.querySelector("#btn__next--hover");
@@ -47,8 +63,7 @@ function btnHover (btn1,btn2) {
 btnHover(btnNextHover,btnNext)
 btnHover(btnPrevHover,btnPrev)
 
-// img banner
-let imgs = ["./assets/img/slider1.webp", "./assets/img/slider2.webp", "./assets/img/slider2.webp"];
+let imgs = ["./assets/img/slider1.webp","./assets/img/slider2.webp"]
 // ------- số slider
 let text = ''
 for(let i = 0; i < imgs.length;i++){
@@ -71,9 +86,6 @@ elementDots.forEach((element) => {
 });
 // thay doi bg color dot
 elementDot.classList.add("color--black");
-
-
-
 // ham next slider
 function nextSlider () {
     indexImg++;
@@ -114,20 +126,30 @@ setInterval(nextSlider,10000)
 // end
 
 // count down
+const TIME_COUNT_DOWN = 'TIME'
+// setTime(18,9,9,9)
+function setTime (day,hour,minute,second) {
+  const timeData = {}
+  timeData.day = day
+  timeData.hour = hour
+  timeData.minute = minute
+  timeData.second = second
+  localStorage.setItem(TIME_COUNT_DOWN,JSON.stringify(timeData))
+}
+const objTime = JSON.parse(localStorage.getItem(TIME_COUNT_DOWN))
 function countDown (day,hours,minute,second) {
   let liDay = document.getElementById("day")
   let liHours = document.getElementById("hours")
   let liMinute = document.getElementById("minute")
   let liSecond = document.getElementById("second")
-
   if(hours > 23 ) {
     hours = 23
   }
   if(minute > 59 ) {
-    hours = 59
+    minute = 59
   }
   if(second > 59 ) {
-    hours = 59
+    second = 59
   }
   liDay.innerHTML =  day
   liHours.innerHTML =  hours
@@ -141,23 +163,19 @@ function countDown (day,hours,minute,second) {
     if(second == 0) {
       second = 60
       minute--
-  liSecond.innerHTML =  second
-
-      liMinute.innerHTML =  minute
+    liSecond.innerHTML =  second
+    liMinute.innerHTML =  minute
     }
     if(minute == 0) {
       minute = 59
       hours--
   liMinute.innerHTML =  minute
-
       liHours.innerHTML =  hours
-
     }
     if(hours == 0) {
       hours = 23
       day--
   liHours.innerHTML =  hours
-
       liDay.innerHTML =  day
     }
     if(day == 0) {
@@ -166,11 +184,12 @@ function countDown (day,hours,minute,second) {
   liMinute.innerHTML =  0
   liSecond.innerHTML =  0
     }
-
+    setTime(day,hours,minute,second)
   }
-
+  
 }
-countDown(04,01,01,05)
+
+countDown(objTime.day,objTime.hour,objTime.minute,objTime.second)
 
 // ---hover btn product sale
 let btnProductNextHover = document.querySelector("#btn__productNext");
@@ -179,3 +198,9 @@ let btnProductPrevHover = document.querySelector("#btn__productPrev");
 let btnProductPrev = document.querySelector("#btn__productPrev--hover");
 btnHover(btnProductNextHover,btnProductNext)
 btnHover(btnProductPrevHover,btnProductPrev)
+
+
+ 
+  
+  
+  
