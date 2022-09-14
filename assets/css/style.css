@@ -178,6 +178,8 @@
     background-color: #fff;
     border-radius: 50%;
     font-size: 20px;
+    z-index: 4;
+    display: none;
 }
 .product__itemImg {
     position: relative;
@@ -187,10 +189,14 @@
     width: 100%;
     
 }
+.product__itemImg:hover #btn-search-hidden {
+    display: block;
+}
 .product__itemImg:hover #img-hidden {
     z-index: 1;
     visibility: inherit;
 }
+
 .product__itemImg:hover #img-visible {
     z-index: 0;
     visibility: hidden;
